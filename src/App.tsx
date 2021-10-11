@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'
+import Header from './componets/Header'
+import Box from './componets/boxes/Box'
+import { Icart } from './componets/interfaces';
 
 function App() {
+  const [cart, setCart] = useState<Icart['cart']>([])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main>
+        <Header />
+        <div className="main">
+          <Box cart={cart} />
+        </div>
+        <div className="footer">
+        </div>
+      </main>
     </div>
   );
 }
