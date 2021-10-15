@@ -1,10 +1,11 @@
 export interface Istate {
   product: {
     id: number
-    imgLink?: string
-    productLink?: string
+    imgLink: string
+    productLink: string
     name: string
     price: number
+    additionalInfo: string
   }[]
 }
 
@@ -15,4 +16,14 @@ export interface Icart {
     name: string
     price: number
   }[]
+}
+
+export interface ItoggleButton {
+  toggleButton: boolean
+}
+
+export interface IAlertInfo {
+  message: string
+  timeOut: boolean
+  setTimeOut: any
 }

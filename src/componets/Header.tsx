@@ -8,8 +8,8 @@ const Header = () => {
       </div>
       <div></div>
       <div className="menu">
-        <MdAccountCircle size={35} onMouseEnter={() => alert('not supported yet')} />
-        <MdShoppingCart size={35} onMouseEnter={() => alert('not supported yet')} />
+        <MdAccountCircle size={35} />
+        <MdShoppingCart size={35} />
       </div>
     </div>
   )

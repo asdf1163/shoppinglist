@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { EditProvider } from './componets/context/Edit';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <EditProvider>
+      <App />
+    </EditProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -5,21 +5,40 @@
       "imgLink": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2019/2/pr_2019_2_27_14_44_44_116_00.jpg",
       "productLink": "https://www.x-kom.pl/p/482381-mikrofon-spc-gear-sm900.html",
       "name": "SPC Gear SM900",
-      "price": 349.99
+      "price": 349.99,
+      "additionalInfo": "brak opisu"
     },
     {
       "id": 2,
       "imgLink": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2020/9/pr_2020_9_21_12_9_23_990_00.jpg",
       "productLink": "https://www.x-kom.pl/p/639343-smartfon-telefon-samsung-galaxy-s20-fe-fan-edition-snapdragon-blue.html",
       "name": "Samsung Galaxy S20 FE Fan Edition Snapdragon",
-      "price": 2199
+      "price": 2199,
+      "additionalInfo": "test 1"
     },
     {
       "id": 3,
       "imgLink": "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/4/pr_2021_4_26_12_10_53_730_00.jpg",
       "productLink": "https://www.x-kom.pl/p/649104-smartband-xiaomi-mi-band-6.html",
       "name": "Xiaomi Mi Band 6",
-      "price": 219
+      "price": 219,
+      "additionalInfo": "opisu brak\naksldfjaskld\nasdfahsjkdfha\nalsjdfhasjkldhfasfasdf\n123123"
+    },
+    {
+      "id": 4,
+      "imgLink": "https://images.unsplash.com/photo-1615821598181-85caf305a078?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FsaWZvcm5pYSUyMHBhbG0lMjB0cmVlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+      "productLink": "asdf",
+      "name": "Podróż do LA",
+      "price": 40000,
+      "additionalInfo": "test"
+    },
+    {
+      "id": 5,
+      "imgLink": "https://cdn.cnn.com/cnnnext/dam/assets/170606120957-california---travel-destination---shutterstock-220315747.jpg",
+      "productLink": "niemam",
+      "name": "test",
+      "price": 60,
+      "additionalInfo": "cos"
     }
   ]
 }

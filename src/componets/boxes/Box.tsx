@@ -1,32 +1,29 @@
-import { useState, useEffect, useRef } from "react";
-import { Istate, Icart } from "../interfaces";
+import { useState } from "react";
+import { Istate, ItoggleButton } from "../interfaces";
 import NewBox from "./NewBox";
 import Products from "./Products";
 
-const Box = ({ cart }: Icart) => {
+interface Iprops {
+  setToggleButton: React.Dispatch<React.SetStateAction<ItoggleButton['toggleButton']>>
+}
 
-  const [product, setProduct] = useState<Istate['product']>([])
-  const intiger = useRef(0);
+interface IsetProduct {
+  product: Istate['product']
+  setProduct: React.Dispatch<React.SetStateAction<Istate['product']>>
+}
 
-  useEffect(() => {
-    fetch('http://localhost:8000/products')
-      .then(res => {
-        return res.json()
-      })
-      .then(data => {
-        data.map(() => {
-          return (
-            setProduct(array => [...array, data[intiger.current]])
-          ),
-          intiger.current++;
-        })
-      })
-  }, [])
 
+const Box: React.FC<Iprops & IsetProduct> = ({ setToggleButton, product, setProduct }) => {
   // console.log(product)
+
+  const [timeOut, setTimeOut] = useState<boolean>(false)
+
   return (
     <>
-      {product && <Products product={product} setProduct={setProduct}/>}
+
+        {/* <AlertInfo message={'Produkt został dodany'} timeOut={timeOut} setTimeOut={setTimeOut} /> */}
+      
+      {product && <Products product={product} setProduct={setProduct} setToggleButton={setToggleButton} />}
       <NewBox product={product} setProduct={setProduct} />
     </>
   )

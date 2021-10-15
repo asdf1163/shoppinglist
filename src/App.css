@@ -1,199 +1,330 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@1,100&display=swap');
 
-.body
-{
+.body {
     padding: 0;
-    margin: 0;
+    margin : 0;
 }
 
-.header
-{
-    position: sticky;
-    width: 100%;
+.header {
+    position        : sticky;
+    width           : 100%;
     background-color: chartreuse;
-    top:0;
-    z-index: 2;
-    border-bottom: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
+    top             : 0;
+    z-index         : 2;
+    border-bottom   : 1px solid black;
+    display         : flex;
+    flex-direction  : row;
+    justify-content : space-between;
+    align-content   : center;
+    align-items     : center;
 }
 
-.header .logo{
-    position: relative;
-    font-size: xx-large;
-    font-style: oblique;
-    font-weight: 600;
+.header .logo {
+    position           : relative;
+    font-size          : xx-large;
+    font-style         : oblique;
+    font-weight        : 600;
     -webkit-user-select: none;
-    user-select: none;
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    margin-left: 15px;
+    user-select        : none;
+    display            : flex;
+    flex-direction     : row;
+    align-items        : baseline;
+    margin-left        : 15px;
 }
 
-.header .logo .logoType
-{
-    font-style: oblique;
-    font-size: 15px;
+.header .logo .logoType {
+    font-style : oblique;
+    font-size  : 15px;
     font-weight: 500;
 }
 
-.header .menu
-{
-    position: relative;
-    display:flex;
+.header .menu {
+    position       : relative;
+    display        : flex;
     justify-content: right;
-    justify-items: right;
-    align-content: center;
-    align-items: center;
+    justify-items  : right;
+    align-content  : center;
+    align-items    : center;
 }
 
-.header .menu svg{
-    opacity: 0.7;
-    transition: ease-in-out 0.2s;
+.header .menu svg {
+    opacity     : 0.7;
+    transition  : ease-in-out 0.2s;
     margin-right: 10px;
 }
 
 .main {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
+    position       : relative;
+    display        : flex;
+    flex-wrap      : wrap;
     justify-content: center;
-    padding: 30px 30px;
+    padding        : 30px 30px;
 }
 
 .window {
-    height:350px;
-    width: 350px;
-    margin: 15px 30px;
-    position: relative;
-    display: block;
+    height    : 350px;
+    width     : 350px;
+    margin    : 15px 30px;
+    position  : relative;
+    display   : block;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.window .image
-{
+.window .image {
     height: 77%;
-    width: 100%;
+    width : 100%;
 }
 
-.window .image img
-{
-    position: absolute;
-    height:inherit;
-    width: inherit;
+.window .image img {
+    position       : absolute;
+    height         : inherit;
+    width          : inherit;
     object-position: center;
-    object-fit: cover;
-    z-index: -1;
+    object-fit     : cover;
+    z-index        : -1;
 }
 
-.window .image svg
-{
-    position: absolute;
-    right:10px;
-    top:10px;
-    color: rgba(255, 0, 0, 0.500);
+.window .image svg {
+    position  : absolute;
+    right     : 10px;
+    top       : 10px;
+    color     : rgba(255, 0, 0, 0.500);
     transition: ease-in-out 0.2s;
 }
 
-.window .image svg:hover
-{
+.window .image svg:hover {
     color: rgba(255, 0, 0, 1);
 }
 
-.window .description
-{
-    position: absolute;
-    display: grid;
+.window .description {
+    position             : absolute;
+    display              : grid;
     grid-template-columns: 87% 13%;
-    grid-template-rows: 80px;
-    height: 80px;
-    width: 100%;
-    bottom: 0;
-    background-color: white;
+    grid-template-rows   : 80px;
+    height               : 80px;
+    width                : 100%;
+    bottom               : 0;
+    background-color     : white;
 }
 
-.window .descriptionText
-{
-    position: relative;
-    height: 80px;
-    /* width: 304px; */
-    left:0;
-    bottom: 0;
-    border-right: 1px solid gray;
+.window .descriptionText {
+    position     : relative;
+    height       : 80px;
+    /* width     : 304px; */
+    left         : 0;
+    bottom       : 0;
+    border-right : 1px solid gray;
 }
 
-.window .descriptionText p, .window .descriptionText h3
-{
-    margin-left:10px;
+.window .descriptionText h3 {
+    text-overflow: ellipsis;
+    overflow     : hidden;
 }
 
-.window .description h3{
-    position: relative;
+.window .descriptionText p,
+.window .descriptionText h3 {
+    margin-left: 10px;
+}
+
+.window .description h3 {
+    position   : relative;
     font-family: 'Bebas Neue', cursive;
 }
 
-.window .description p{
-    position: absolute;
+.window .description p {
+    position   : absolute;
     font-family: 'Kanit', sans-serif;
-    bottom: 0px;
+    bottom     : 0px;
 }
 
-.window .description label
-{
+.window .description label {
     display: block;
 }
 
-.window .descriptionImg
-{
-    display: grid;
-    grid-auto-flow: row;
+.window .descriptionImg {
+    display        : grid;
+    grid-auto-flow : row;
     justify-content: center;
-    justify-items: center;
-    align-items: center;
-    margin: 10px 0;
+    justify-items  : center;
+    align-items    : center;
+    margin         : 10px 0;
 }
 
 
-.window .descriptionImg a
-{
+.window .descriptionImg a {
     color: initial;
 }
-.window .descriptionImg svg
-{
-    opacity: 0.5;
+
+.window .descriptionImg svg {
+    opacity   : 0.5;
     transition: ease-in-out 0.2s;
 }
 
-.window .descriptionImg svg:hover
-{
-    opacity: 1;   
+.window .descriptionImg svg:hover {
+    opacity: 1;
 }
 
-.window .descriptionImg input[type="submit"]
-{
+.window .descriptionImg input[type="submit"] {
     background-color: initial;
-    border: 1px solid black;
-    height: 30px;
-    width: 30px;
-    border-radius: 25px;
-    font-size: 20px;
-    font-weight: 500;
-    cursor: pointer;
+    border          : 1px solid black;
+    height          : 30px;
+    width           : 30px;
+    border-radius   : 25px;
+    font-size       : 20px;
+    font-weight     : 500;
+    cursor          : pointer;
 }
 
+.addButtonWindow {
+    height         : 350px;
+    width          : 350px;
+    margin         : 15px 30px;
+    position       : relative;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.addButtonWindow svg {
+    border       : 2px solid black;
+    padding      : 10px;
+    border-radius: 50%;
+    opacity      : 0.5;
+    transition   : ease-in-out .2s;
+}
+
+.addButtonWindow svg:hover {
+    opacity: 1;
+}
+
+
+.alertInfo
+{
+    display:flex;
+    align-items: center;
+    position: fixed;
+    top: 50px;
+    right: 50px; 
+    width: 300px; 
+    height: 100px;
+    padding-left:10px;
+    background-color:bisque;
+    transition: ease-in-out 2s;
+}
+
+/* Edit workspace */
+.edit {
+    position        : fixed;
+    width           : 100vw;
+    height          : 100vh;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index         : 20;
+    user-select     : none;
+}
+
+.edit .panel {
+    position             : fixed;
+    display              : grid;
+    grid-template-columns: 1fr 0.1fr 1fr;
+    grid-template-rows   : 1fr 0.1fr;
+    width                : 90vw;
+    height               : 90vh;
+    border-radius        : 25px;
+    background-color     : #ffffff;
+    z-index              : 21;
+    padding              : 10px;
+}
+
+.edit .panel .exit {
+    position: absolute;
+    top     : 20px;
+    right   : 20px;
+}
+
+.edit .panel .leftPanel img {
+    height    : 270px;
+    width     : 350px;
+    object-fit: cover;
+    border    : 1px solid black;
+}
+
+.edit .panel .rightPanel,
+.edit .panel .leftPanel {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    margin-top    : 50px;
+}
+
+.edit .panel .rightPanel label,
+.edit .panel .leftPanel label {
+    margin-bottom: 20px;
+}
+
+.edit .panel .rightPanel label input,
+.edit .panel .leftPanel label input {
+    width           : 30vw;
+    height          : 30px;
+    margin          : 5px 0;
+    background-color: rgb(236, 236, 236);
+    border          : none;
+}
+
+.edit .panel .rightPanel label textarea {
+    width           : 30vw;
+    height          : 20vh;
+    margin          : 5px 0;
+    background-color: rgb(236, 236, 236);
+    border          : none;
+    resize          : none;
+}
+
+.edit .panel .options {
+    position       : relative;
+    grid-column    : 3/4;
+    justify-content: flex-end;
+    align-items    : center;
+    display        : flex;
+}
+
+.edit .panel .options label {
+    display: flex;
+}
+
+.edit .panel .options label input[type='submit'] {
+    width           : 120px;
+    height          : 50px;
+    background-color: pink;
+    border          : none;
+    border-radius   : 20px;
+    margin-right    : 20px;
+    transition      : ease-in-out 0.2s;
+    cursor          : pointer;
+}
+
+.edit .panel .options label input[type='submit']:hover {
+    background-color: rgb(255, 134, 154);
+}
 
 @media screen and (max-width: 585px) {
     .main {
         padding: 0px 0px;
-        border: none;
+        border : none;
     }
 
     .window {
-        height:300px;
-        width: 90vw;
+        height: 300px;
+        width : 90vw;
+    }
+
+    hr {
+        display: none;
+    }
+
+    .edit .panel {
+        grid-auto-flow: column;
     }
 }
