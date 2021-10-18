@@ -15,7 +15,6 @@ const NewBox: React.FC<passProduct & IAlertInfo> = ({ product, setProduct, setMe
     const [price, setPrice] = useState(0)
     const [additionalInfo, setAdditionalInfo] = useState('')
     const [toggleAddButton, setToggleAddButton] = useState(false)
-    // const [timeOut, setTimeOut] = useState<boolean>(false)
 
     const handleSubmit = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
         e.preventDefault()

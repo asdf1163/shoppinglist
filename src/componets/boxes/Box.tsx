@@ -14,13 +14,10 @@ interface IsetProduct {
 }
 
 const Box: React.FC<Iprops & IsetProduct> = ({ setToggleButton, product, setProduct }) => {
-  
+
   const {setMessage,setTimeOut} = useContext<IAlertInfo|any>(AlertInfoxtContext)
   return (
     <>
-
-        {/* <AlertInfo message={'Produkt został dodany'} timeOut={timeOut} setTimeOut={setTimeOut} /> */}
-      
       <Products product={product} setProduct={setProduct} setToggleButton={setToggleButton} setMessage={setMessage} setTimeOut={setTimeOut} />
       <NewBox product={product} setProduct={setProduct} setMessage={setMessage} setTimeOut={setTimeOut}/>
     </>

@@ -19,6 +19,8 @@ const Products: React.FC<Iprops & Iprops2 & IAlertInfo> = ({ product, setProduct
     const handleClick = (ItemID: number) => {
         setProductID(0)
         setArrayID(0)
+        setMessage('Product has been deleted')
+        setTimeOut(true)
         
         const items = product.filter((item: any) => item.id !== ItemID);
         setProduct(items)
