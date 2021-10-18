@@ -35,7 +35,7 @@ const NewBox: React.FC<passProduct & IAlertInfo> = ({ product, setProduct, setMe
         setPrice(0)
         setAdditionalInfo('')
         setToggleAddButton(false)
-        setMessage('Product added')
+        setMessage('Product has been added')
         setTimeOut(true)
     }
     return (
