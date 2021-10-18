@@ -110,10 +110,12 @@
 .window .descriptionText {
     position     : relative;
     height       : 80px;
-    /* width     : 304px; */
     left         : 0;
     bottom       : 0;
     border-right : 1px solid gray;
+    overflow     : hidden;
+    white-space  : nowrap;
+    text-overflow: ellipsis;
 }
 
 .window .descriptionText h3 {
@@ -373,7 +375,7 @@
     }
 
     .edit .panel .options {
-        grid-column: unset;
+        grid-column    : unset;
         justify-content: center;
     }
 
