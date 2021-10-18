@@ -33,7 +33,7 @@
 }
 
 .header .logo .logoType {
-    font-style : oblique;
+    font-style : unset;
     font-size  : 15px;
     font-weight: 500;
 }
@@ -198,18 +198,19 @@
 }
 
 
-.alertInfo
-{
-    display:flex;
-    align-items: center;
-    position: fixed;
-    top: 50px;
-    right: 50px; 
-    width: 300px; 
-    height: 100px;
-    padding-left:10px;
-    background-color:bisque;
-    transition: ease-in-out 2s;
+.alertInfo {
+    display         : flex;
+    align-items     : center;
+    position        : fixed;
+    top             : 50px;
+    right           : 50px;
+    width           : 300px;
+    height          : 100px;
+    padding-left    : 10px;
+    background-color: bisque;
+    transition      : cubic-bezier(0, 1, 0.8, 1) 0.8s;
+    z-index         : 100;
+    opacity         : 0;
 }
 
 /* Edit workspace */
@@ -309,7 +310,7 @@
     background-color: rgb(255, 134, 154);
 }
 
-@media screen and (max-width: 585px) {
+@media screen and (max-width: 485px) {
     .main {
         padding: 0px 0px;
         border : none;
@@ -320,11 +321,63 @@
         width : 90vw;
     }
 
+    .alertInfo {
+        top             : 50px;
+        right           : 5px;
+        width           : 300px;
+        height          : 100px;
+        padding-left    : 10px;
+        background-color: bisque;
+        transition      : ease-in-out 2s;
+        visibility      : unset;
+        z-index         : 100;
+    }
+}
+
+@media screen and (max-width: 750px) {
     hr {
         display: none;
     }
 
     .edit .panel {
-        grid-auto-flow: column;
+        grid-auto-flow       : column;
+        grid-template-columns: 1fr;
+        grid-template-rows   : 1fr 1fr 1fr;
+    }
+
+    .edit .panel .leftPanel img {
+        height: 216px;
+        width : 280px;
+    }
+
+    .edit .panel .rightPanel,
+    .edit .panel .leftPanel {
+        margin-top: 0px;
+    }
+
+    .edit .panel .rightPanel label,
+    .edit .panel .leftPanel label {
+        margin-bottom: 0px;
+    }
+
+    .edit .panel .rightPanel label input,
+    .edit .panel .leftPanel label input {
+        width           : 70vw;
+        height          : 30px;
+        background-color: rgb(236, 236, 236);
+        border          : none;
+    }
+
+    .edit .panel .rightPanel label textarea {
+        width: 70vw;
+    }
+
+    .edit .panel .options {
+        grid-column: unset;
+        justify-content: center;
+    }
+
+    .edit .panel .options label input[type='submit'] {
+        margin-right: 0px;
     }
 }

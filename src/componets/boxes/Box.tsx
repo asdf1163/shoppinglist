@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Istate, ItoggleButton } from "../interfaces";
+import { useContext } from "react";
+import { AlertInfoxtContext } from "../context/AlertInfo";
+import { IAlertInfo, Istate, ItoggleButton } from "../interfaces";
 import NewBox from "./NewBox";
 import Products from "./Products";
 
@@ -12,19 +13,16 @@ interface IsetProduct {
   setProduct: React.Dispatch<React.SetStateAction<Istate['product']>>
 }
 
-
 const Box: React.FC<Iprops & IsetProduct> = ({ setToggleButton, product, setProduct }) => {
-  // console.log(product)
-
-  const [timeOut, setTimeOut] = useState<boolean>(false)
-
+  
+  const {setMessage,setTimeOut} = useContext<IAlertInfo|any>(AlertInfoxtContext)
   return (
     <>
 
         {/* <AlertInfo message={'Produkt został dodany'} timeOut={timeOut} setTimeOut={setTimeOut} /> */}
       
-      {product && <Products product={product} setProduct={setProduct} setToggleButton={setToggleButton} />}
-      <NewBox product={product} setProduct={setProduct} />
+      <Products product={product} setProduct={setProduct} setToggleButton={setToggleButton} setMessage={setMessage} setTimeOut={setTimeOut} />
+      <NewBox product={product} setProduct={setProduct} setMessage={setMessage} setTimeOut={setTimeOut}/>
     </>
   )
 }

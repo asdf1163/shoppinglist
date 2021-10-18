@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { VscClose } from "react-icons/vsc";
+import { AlertInfoxtContext } from "./context/AlertInfo";
 import { EditContext } from "./context/Edit";
-import { Istate, ItoggleButton } from "./interfaces";
+import { IAlertInfo, Istate, ItoggleButton } from "./interfaces";
 
 interface Iprops2 {
     setToggleButton: React.Dispatch<React.SetStateAction<ItoggleButton['toggleButton']>>
@@ -13,53 +14,40 @@ interface Iprops3 {
 }
 
 const EditForm: React.FC<Iprops2 & Iprops3> = ({ product, setProduct, setToggleButton }) => {
-    const { productID } = useContext(EditContext)
+    const { productID, arrayID } = useContext(EditContext)
+    const { setMessage, setTimeOut } = useContext<IAlertInfo | any>(AlertInfoxtContext)
 
     useEffect(() => {
-        setEditImgLink(product[productID - 1].imgLink)
-        setEditName(product[productID - 1].name)
-        setEditPrice(product[productID - 1].price)
-        setEditProduktLink(product[productID - 1].productLink)
-        setEditAddInfo(product[productID - 1].additionalInfo)
-    }, [productID])
+        setEditImgLink(product[arrayID].imgLink)
+        setEditName(product[arrayID].name)
+        setEditPrice(product[arrayID].price)
+        setEditProduktLink(product[arrayID].productLink)
+        setEditAddInfo(product[arrayID].additionalInfo)
+    }, [arrayID, product])
 
-    const [editImgLink, setEditImgLink] = useState(product[productID - 1].imgLink)
-    const [editName, setEditName] = useState(product[productID - 1].name)
-    const [editPrice, setEditPrice] = useState(product[productID - 1].price)
-    const [editProduktLink, setEditProduktLink] = useState(product[productID - 1].productLink)
-    const [editAddInfo, setEditAddInfo] = useState(product[productID - 1].additionalInfo)
+    const [editImgLink, setEditImgLink] = useState(product[arrayID].imgLink)
+    const [editName, setEditName] = useState(product[arrayID].name)
+    const [editPrice, setEditPrice] = useState(product[arrayID].price)
+    const [editProduktLink, setEditProduktLink] = useState(product[arrayID].productLink)
+    const [editAddInfo, setEditAddInfo] = useState(product[arrayID].additionalInfo)
 
 
     const handleSubmit = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
         e.preventDefault()
-
-        fetch('http://localhost:8000/products/' + productID, {
-            method: 'PUT',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                id: productID,
-                imgLink: editImgLink !== '' ? editImgLink : 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/1024px-Question_Mark.svg.png',
-                productLink: editProduktLink,
-                name: editName,
-                price: editPrice,
-                additionalInfo: editAddInfo
-            })
-        }).then(() => {
-            setProduct(product.map((item) =>
-                item.id === productID ?
-                    {
-                        ...item, imgLink: editImgLink,
-                        productLink: editProduktLink,
-                        name: editName,
-                        price: editPrice,
-                        additionalInfo: editAddInfo
-                    } :
-                    item
-            ))
-            console.log(productID, editImgLink, editProduktLink, editName, editPrice.toFixed(2))
-            setToggleButton(true)
-            console.log('product updated')
-        })
+        setProduct(product.map((item) =>
+            item.id === productID ?
+                {
+                    ...item, imgLink: editImgLink !== '' ? editImgLink : 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/1024px-Question_Mark.svg.png',
+                    productLink: editProduktLink,
+                    name: editName,
+                    price: isNaN(editPrice) ? 0 : editPrice,
+                    additionalInfo: editAddInfo
+                } :
+                item
+        ))
+        setToggleButton(true)
+        setMessage('Product has been changed!')
+        setTimeOut(true)
     }
 
     return (
@@ -72,7 +60,7 @@ const EditForm: React.FC<Iprops2 & Iprops3> = ({ product, setProduct, setToggleB
                     <div className="leftPanel">
                         <img src={editImgLink} alt="none" />
                         <label>
-                            Link do zdjęcia
+                            URL to image:
                             <br />
                             <input
                                 type='text'
@@ -85,7 +73,7 @@ const EditForm: React.FC<Iprops2 & Iprops3> = ({ product, setProduct, setToggleB
                     <hr />
                     <div className="rightPanel">
                         <label>
-                            Nazwa produktu:
+                            Product name:
                             <br />
                             <input
                                 type='text'
@@ -95,7 +83,7 @@ const EditForm: React.FC<Iprops2 & Iprops3> = ({ product, setProduct, setToggleB
                             />
                         </label>
                         <label>
-                            Cena produktu:
+                            Product price:
                             <br />
                             <input
                                 type='number'
@@ -105,7 +93,7 @@ const EditForm: React.FC<Iprops2 & Iprops3> = ({ product, setProduct, setToggleB
                             />
                         </label>
                         <label>
-                            Link do produktu: {productID}
+                            URL to product:
                             <br />
                             <input
                                 type='text'
@@ -115,7 +103,7 @@ const EditForm: React.FC<Iprops2 & Iprops3> = ({ product, setProduct, setToggleB
                             />
                         </label>
                         <label>
-                            Dodatkowe informacje:
+                            Additional information:
                             <br />
                             <textarea
                                 id='editAddInfo'

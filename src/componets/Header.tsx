@@ -4,7 +4,11 @@ const Header = () => {
   return (
     <div className="header">
       <div className="logo">
-        Shopping List
+        RS
+        <div className="logoType">
+          Shopping List
+
+        </div>
       </div>
       <div></div>
       <div className="menu">

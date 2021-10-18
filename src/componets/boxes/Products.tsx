@@ -1,8 +1,7 @@
-import {useContext} from "react";
+import { useContext } from "react";
 import { MdInfoOutline, MdShoppingCart, MdClose } from "react-icons/md";
 import { EditContext } from "../context/Edit";
-// import { useHistory } from 'react-router-dom';
-import { Istate, ItoggleButton } from '../interfaces'
+import { Istate, ItoggleButton, IAlertInfo } from '../interfaces'
 
 interface Iprops {
     product: Istate['product']
@@ -13,34 +12,31 @@ interface Iprops2 {
     setToggleButton: React.Dispatch<React.SetStateAction<ItoggleButton['toggleButton']>>
 }
 
-const Products: React.FC<Iprops&Iprops2>= ({ product, setProduct, setToggleButton }) => {
-    // console.log(setToggleButton)
+const Products: React.FC<Iprops & Iprops2 & IAlertInfo> = ({ product, setProduct, setToggleButton, setMessage, setTimeOut}) => {
+    const { setProductID, setArrayID } = useContext(EditContext)
 
-    const removeFromState = (ItemID: number) => {
+
+    const handleClick = (ItemID: number) => {
+        setProductID(0)
+        setArrayID(0)
+        
         const items = product.filter((item: any) => item.id !== ItemID);
         setProduct(items)
-        console.log('product deleted')
     }
 
-    const handleClick = (id: number) => {
-        fetch('http://localhost:8000/products/' + id, {
-            method: 'DELETE',
-        }).then(() => removeFromState(id))
-    }
 
-    const {setProductID} = useContext(EditContext)
-    const handleEditClick = (id: number) => {
-        
+    const handleEditClick = (idP: number, idA: number) => {
+        setProductID(idP)
+        setArrayID(idA)
         setToggleButton(false)
-        setProductID(id)
     }
 
     return (
         <>
-            {product.map((index) => (
+            {product.map((index,intiger) => (
                 <div className="window" key={index.id}>
                     <div className="image">
-                        <img src={index.imgLink} alt={'image' + (index.id)} />
+                        <img src={index.imgLink} alt={String(index.id)} />
                         <MdClose onClick={() => handleClick(index.id)} size={30} />
                     </div>
                     <div className="description">
@@ -49,7 +45,7 @@ const Products: React.FC<Iprops&Iprops2>= ({ product, setProduct, setToggleButto
                             <p>{index.price.toFixed(2)} zł</p>
                         </div>
                         <div className="descriptionImg">
-                            <MdInfoOutline size={25} onClick={() => handleEditClick(index.id)} />
+                            <MdInfoOutline size={25} onClick={() => handleEditClick(index.id, intiger)} />
                             <a href={index.productLink} ><MdShoppingCart size={25} /></a>
                         </div>
                     </div>

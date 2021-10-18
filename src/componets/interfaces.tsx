@@ -1,3 +1,5 @@
+import { SetStateAction } from "react";
+
 export interface Istate {
   product: {
     id: number
@@ -23,7 +25,8 @@ export interface ItoggleButton {
 }
 
 export interface IAlertInfo {
-  message: string
-  timeOut: boolean
-  setTimeOut: any
+  message?: string
+  setMessage: React.Dispatch<SetStateAction<string>>
+  timeOut?: boolean
+  setTimeOut: React.Dispatch<SetStateAction<boolean>>
 }
